@@ -1,5 +1,3 @@
-touch $@
+echo -e "#!/usr/bin/env python\n" >> "$@"
 
-echo -e "#!/usr/bin/env python\n" >> $@
-
-chmod +x $@
+chmod +x "$@"
