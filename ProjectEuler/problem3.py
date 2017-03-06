@@ -6,13 +6,16 @@
 from math import *
 
 def isprime(nb):
-    for i in range(3, nb):
-        if n%i == 0:
+    global prime
+    if nb <= 1: return False
+    for elt in prime:
+        if nb%elt == 0:
             return False
     return True
 
 prime = []
 n = 600851475143
+
 
 print("Calculating primes")
 for i in range(floor(sqrt(n))):
@@ -20,6 +23,8 @@ for i in range(floor(sqrt(n))):
         prime.append(i)
 
 l = [0] * len(prime)
+
+print(prime)
 
 print("division")
 while n > 1:
@@ -30,10 +35,15 @@ while n > 1:
 
 print("Final multiplication")
 res = 1
-for i in range(len(l)):
+
+i = 0
+while True:
+    if i == len(l):
+        break
     if l[i] == 0:
         l.pop(i)
         i -= 1
+    i += 1
 
 print("res : " + str(l[len(l)-1]))
 
