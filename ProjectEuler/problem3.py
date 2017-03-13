@@ -16,38 +16,15 @@ def isprime(nb):
 prime = []
 n = 600851475143
 
-print("Calculating primes")
-sqr = floor(sqrt(n))
-while i < sqr:
+sqr = ceil(sqrt(n))
+i = 2
+while i <= sqr:
     if isprime(i) is True:
         prime.append(i)
-        while n%i != 0:
+        while n%i == 0:
             n /= i
-    sqr = floor(sqrt(n))
-
-l = [0] * len(prime)
-
-print(prime)
-
-print("division")
-while n > 1:
-    for i in range(len(prime)):
-        while n%prime[i] != 0:
-            n /= prime[i]
-            l[i] += 1
-
-print("Final multiplication")
-res = 1
-
-i = 0
-while True:
-    if i == len(l):
-        break
-    if l[i] == 0:
-        l.pop(i)
-        i -= 1
+    sqr = ceil(sqrt(n))
     i += 1
 
-print("res : " + str(l[len(l)-1]))
-
+print(prime[-1])
 
