@@ -48,44 +48,33 @@ grid = [[ 8, 2,22,97,38,15, 0,40, 0,75, 4, 5, 7,78,52,12,50,77,91, 8],
         [20,73,35,29,78,31,90, 1,74,31,49,71,48,86,81,16,23,57, 5,54],
         [ 1,70,54,71,83,51,54,69,16,92,33,48,61,43,52, 1,89,19,67,48]]
 
-def prod2(L):
-    res = 1
-    for elt in L:
-        res *= elt
-    return res
-
-
-import functools
-import operator
-prod = lambda l : functools.reduce(operator.mul, l)
-
-
-def l2i(L, i=0):
-    res = []
-    for elt in L:
-        res.append(elt[i])
-    return res
-
-
-max = grid[0][0]
+m = 0
 for i in range(20):
     for j in range(20):
-        if j < 16:
-            t = grid[i][j:j+4]
-            if max < prod(t):
-                max = prod(t)
-        if i < 16:
-            t = grid[i:i+4][j]
-            if max < prod(t):
-                max = prod(t)
-        if i < 16 and j < 17:
-            t = [ grid[i+x][j+x] for x in range(4) ]
-            if max < prod(t):
-                max = prod(t)
+        if i < 16 and j < 16:
+            tmp = 1
+            for k in range(4):
+                tmp *= grid[i+k][j+k]
+            m = max(m, tmp)
+        if i > 3 and j < 16:
+            tmp = 1
+            for k in range(4):
+                tmp *= grid[i-k][j+k]
+            m = max(m, tmp)
         if i < 16 and j > 3:
-            t = [ grid[i+x][j-x] for x in range(4) ]
-            if max < prod(t):
-                max = prod(t)
+            tmp = 1
+            for k in range(4):
+                tmp *= grid[i+k][j-k]
+            m = max(m, tmp)
+        if j < 16:
+            tmp = 1
+            for k in range(4):
+                tmp *= grid[i][j+k]
+            m = max(m, tmp)
+        if i < 16:
+            tmp = 1
+            for k in range(4):
+                tmp *= grid[i+k][j]
+            m = max(m, tmp)
 
-print(max)
-
+print(m)
