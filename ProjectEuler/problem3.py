@@ -23,8 +23,9 @@ while i <= sqr:
         prime.append(i)
         while n%i == 0:
             n /= i
-    sqr = ceil(sqrt(n))
+        sqr = ceil(sqrt(n))
     i += 1
 
-print(prime[-1])
+# it only remains the last prime factor
+print(int(n))
 
