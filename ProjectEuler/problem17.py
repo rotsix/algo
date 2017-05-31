@@ -37,7 +37,7 @@ dict = {
     "and": len("and"),
 }
 
-def int_to_len(n):
+def int2len(n):
     if (n%10 == 0 and n < 100) or n < 20:
         #      20
         #      twenty
@@ -53,10 +53,10 @@ def int_to_len(n):
     elif n > 100:
         #      921
         #      nine                 hundred     and           twenty-one
-        return int_to_len(n//100) + dict[100] + dict["and"] + int_to_len(n%100)
+        return int2len(n//100) + dict[100] + dict["and"] + int2len(n%100)
     else:
         #      21
         #      twenty                   one
-        return int_to_len((n//10)*10) + int_to_len(n%10)
+        return int2len((n//10)*10) + int2len(n%10)
 
-print(sum(int_to_len(i) for i in range(1,1001)))
+print(sum(int2len(i) for i in range(1,1001)))
