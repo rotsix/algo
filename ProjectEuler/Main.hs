@@ -2,9 +2,9 @@ import System.Environment (getArgs)
 
 import Control.Monad (liftM)
 
-import Problem3 as P3
-import Problem12 as P12
-import Problem14 as P14
+import Problem003 as P3
+import Problem012 as P12
+import Problem014 as P14
 
 main :: IO ()
 main = do

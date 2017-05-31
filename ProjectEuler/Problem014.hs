@@ -1,4 +1,4 @@
-module Problem14 (answer) where
+module Problem014 (answer) where
 
 -- The following iterative sequence is defined for the set of positive integers:
 -- n → n/2 (n is even)
