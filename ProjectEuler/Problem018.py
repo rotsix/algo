@@ -50,13 +50,14 @@ triangle = [[75],
             [63,66, 4,68,89,53,67,30,73,16,69,87,40,31],
             [ 4,62,98,27,23, 9,70,98,73,93,38,53,60, 4,23]]
 
-def path(level=0, position=0):
-    if level == len(triangle)-1:
-        return triangle[level][position]
-    else:
-        return triangle[level][position] + max(path(level+1, position), path(level+1, position+1))
+for i in range(1,len(triangle)):
+    for j in range(len(triangle[i])):
+        if j == 0:
+            triangle[i][j] += triangle[i-1][j]
+        elif j == i:
+            triangle[i][j] += triangle[i-1][j-1]
+        else:
+            triangle[i][j] += max(triangle[i-1][j-1], triangle[i-1][j])
 
-print(path())
-
-
+print(max(triangle[-1]))
 
