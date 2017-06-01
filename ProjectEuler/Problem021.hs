@@ -15,8 +15,9 @@ import Data.Tuple
 answer :: Integer
 answer = sum [i | i <- [2..10000], isAmicable i]
   where
-    -- amicable n = sum of the divisors of n
+    -- isAmicable if (amicable $ amicable n) == n and (amicable n ≠ n)
     isAmicable n = let an = amicable n in (n /= an) && (amicable an == n)
+    -- amicable n = sum of the divisors of n
     amicable n = sum $ map product $ init $ rmdup $ subsequences $ primeFactors n
 
 rmdup :: Ord a => [a] -> [a]
