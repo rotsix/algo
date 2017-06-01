@@ -14,7 +14,7 @@ module Problem012 (answer) where
 -- We can see that 28 is the first triangle number to have over five divisors.
 -- What is the value of the first triangle number to have over five hundred divisors?
 
--- need community/haskell-primes on archlinux
+-- community/haskell-primes
 import Data.Numbers.Primes
 import Data.List
 
