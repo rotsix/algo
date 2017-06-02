@@ -59,4 +59,4 @@ def high(triangle):
     return triangle[0][0]
 
 if __name__ == '__main__':
-    print(high(numbers))
+    print(high(triangle))
