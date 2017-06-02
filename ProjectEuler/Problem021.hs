@@ -7,19 +7,13 @@ module Problem021 (answer) where
 
 -- Evaluate the sum of all the amicable numbers under 10000.
 
--- community/haskell-primes
-import Data.Numbers.Primes
 import Data.List
 import Data.Tuple
+
+import Utils (rmdup, divisors)
 
 answer :: Integer
 answer = sum [i | i <- [2..10000], isAmicable i]
   where
-    -- isAmicable if (amicable $ amicable n) == n and (amicable n ≠ n)
     isAmicable n = let an = amicable n in (n /= an) && (amicable an == n)
-    -- amicable n = sum of the divisors of n
-    amicable n = sum $ map product $ init $ rmdup $ subsequences $ primeFactors n
-
-rmdup :: Ord a => [a] -> [a]
-rmdup [] = []
-rmdup (x : xs) = x : (rmdup $ filter (\y -> not (x == y)) xs)
+    amicable n = sum $ divisors n
