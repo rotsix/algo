@@ -13,7 +13,7 @@ rmdup (x : xs) = x : (rmdup $ filter (\y -> not (x == y)) xs)
 divisors :: Integer -> [Integer]
 divisors n = map product $ init $ rmdup $ subsequences $ primeFactors n
 
--- array to integer : [1, 2, 3] -> 123
+-- array to integer : [3, 2, 1] -> 123
 int :: Integer -> [Integer] -> Integer
 int _ [] = 0
 int n (x : xs) = (10^n)*x + (int (n+1) xs)
