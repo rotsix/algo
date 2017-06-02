@@ -1,4 +1,4 @@
-module Utils (rmdup, divisors) where
+module Utils (rmdup, divisors, int) where
 
 -- community/haskell-primes
 import Data.Numbers.Primes
