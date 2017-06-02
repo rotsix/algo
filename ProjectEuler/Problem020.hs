@@ -18,4 +18,3 @@ int2array :: Integer -> [Integer]
 int2array n
   | n < 10    = [n]
   | otherwise = n `mod` 10 : (int2array $ n `div` 10)
-

@@ -117,4 +117,3 @@ triangle = [[59],
 from Problem018 import high
 
 print(high(triangle))
-

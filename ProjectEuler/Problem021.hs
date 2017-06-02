@@ -23,4 +23,3 @@ answer = sum [i | i <- [2..10000], isAmicable i]
 rmdup :: Ord a => [a] -> [a]
 rmdup [] = []
 rmdup (x : xs) = x : (rmdup $ filter (\y -> not (x == y)) xs)
-

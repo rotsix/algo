@@ -23,4 +23,3 @@ def n2s(n):
 
 names.sort()
 print(l2s(names))
-
