@@ -10,7 +10,7 @@ module Problem021 (answer) where
 import Data.List
 import Data.Tuple
 
-import Utils (rmdup, divisors)
+import Utils (divisors)
 
 answer :: Integer
 answer = sum [i | i <- [2..10000], isAmicable i]

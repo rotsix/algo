@@ -6,7 +6,7 @@ module Problem024 (answer) where
 
 import Data.List
 
-import Utils (int)
+import Utils (array2int)
 
 answer :: Integer
-answer = int 0 $ reverse $ (sort $ permutations [0..9])!!999999
+answer = array2int 0 $ reverse $ (sort $ permutations [0..9])!!999999

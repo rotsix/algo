@@ -7,14 +7,7 @@ module Problem020 (answer) where
 
 -- Find the sum of the digits in the number 100!
 
+import Utils (int2array, fact)
+
 answer :: Integer
 answer = sum $ int2array $ fact 100
-
-fact :: Integer -> Integer
-fact 1 = 1
-fact n = n * (fact $ n-1)
-
-int2array :: Integer -> [Integer]
-int2array n
-  | n < 10    = [n]
-  | otherwise = n `mod` 10 : (int2array $ n `div` 10)
