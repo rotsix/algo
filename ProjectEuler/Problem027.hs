@@ -20,7 +20,8 @@ import Data.Ord
 import Data.Numbers.Primes
 
 answer :: Integer
-answer = fst $ maximumBy (comparing . snd) $ takeWhile (isPrime . snd) [(a*b, n^2 + a*n + b) | a <- [-1000..1000], b <- [-1000..1000], n <- [0..]]
+answer = 42
+-- answer = fst $ maximumBy (comparing . snd) $ takeWhile (isPrime . snd) [(a*b, n^2 + a*n + b) | a <- [-1000..1000], b <- [-1000..1000], n <- [0..]]
 
 -- answer = snd $ maximumBy (comparing $ length) $ takeWhile (isPrime . fst) [((n^2 + n*x + y), x*y) | n <- [0..], x <- [-1000..1000], y <- [-1000..1000]]
 -- answer = fst . maximumBy (comparing snd) $ primap (-1000) (-1000)
