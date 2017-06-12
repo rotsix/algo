@@ -13,6 +13,7 @@ import Problem025 as P25
 import Problem027 as P27
 import Problem029 as P29
 import Problem030 as P30
+import Problem039 as P39
 import Problem040 as P40
 import Problem041 as P41
 
@@ -38,6 +39,7 @@ sol 25 = return $ show P25.answer
 sol 27 = return $ show P27.answer
 sol 29 = return $ show P29.answer
 sol 30 = return $ show P30.answer
+sol 39 = return $ show P39.answer
 sol 40 = return $ show P40.answer
 sol 41 = return $ show P41.answer
 sol _ = return $ show "This problem isn't solved using Haskell"
