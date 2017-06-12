@@ -14,9 +14,11 @@ divisors :: Integer -> [Integer]
 divisors n = map product $ init $ rmdup $ subsequences $ primeFactors n
 
 -- array to integer : [3, 2, 1] -> 123
-array2int :: Integer -> [Integer] -> Integer
-array2int _ [] = 0
-array2int n (x : xs) = (10^n)*x + (array2int (n+1) xs)
+array2int :: [Integer] -> Integer
+array2int n = array2intBIS 0 n
+array2intBIS :: Integer -> [Integer] -> Integer
+array2intBIS _ [] = 0
+array2intBIS n (x : xs) = (10^n)*x + (array2intBIS (n+1) xs)
 
 -- integer to array
 int2array :: Integer -> [Integer]
