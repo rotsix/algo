@@ -24,4 +24,4 @@ while len(both) < 3:
     if tri[-1] == hexa[-1] and penta[-1] == hexa[-1]:
         both.append(hexa[-1])
 
-print(both)
+print(both[-1])
