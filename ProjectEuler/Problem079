@@ -1,0 +1,74 @@
+A common security method used for online banking is to ask the user for three random characters from a passcode. For example, if the passcode was 531278, they may ask for the 2nd, 3rd, and 5th characters; the expected reply would be: 317.
+
+The text file, keylog.txt*, contains fifty successful login attempts.
+
+Given that the three characters are always asked for in order, analyse the file so as to determine the shortest possible secret passcode of unknown length.
+
+
+
+To solve this problem, I use a pen and some paper, and this is how I did it:
+3 1 9  (680, we can't use them now)
+1 8 0 tells us that 8 and 0 come after 1, then we have:
+3 1 (8 0 9) we don't know the order
+6 9 0 tells us that 6 is before 9, and 0 after, so we have
+3 1 (8 6) 9 0
+
+and so..
+
+SOLUTION:
+73162890
+
+
+
+*keylog.txt :
+319
+680
+180
+690
+129
+620
+762
+689
+762
+318
+368
+710
+720
+710
+629
+168
+160
+689
+716
+731
+736
+729
+316
+729
+729
+710
+769
+290
+719
+680
+318
+389
+162
+289
+162
+718
+729
+319
+790
+680
+890
+362
+319
+760
+316
+729
+380
+319
+728
+716
+
