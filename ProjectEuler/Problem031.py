@@ -24,7 +24,7 @@ def easy():
                                     if a*1 + b*2 + c*5 + d*10 + e*20 + f*50 + g*100 + h*200 == 200:
                                         total += 1
                                         print(f"1p: {a}, 2p: {b}, 5p: {c}, 10p: {d}, 20p: {e}, 50p: {f}, £1: {g}, £2: {h}")
-
+    
     print(total)
 
 

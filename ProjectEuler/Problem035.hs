@@ -11,4 +11,3 @@ import Utils (int2array, array2int)
 answer :: Integer
 answer = toInteger $ length $ filter (\x -> x < 1000000 && (circular $ int2array x)) primes
   where circular n = length n == (length $ filter (isPrime) [array2int i | i <- permutations n])
-
