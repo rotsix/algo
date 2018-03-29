@@ -10,13 +10,15 @@ usage: ./langtons_ant.py [width height]
 import sys
 import pygame
 
-WIDTH = 100 # default values
+WIDTH = 100 # default
 HEIGHT = 100
 CELL_SIZE = 5
 MARGIN = 1
 SCREEN = None
 
 BLACK = (0, 0, 0)
+GRAY_DARK = (63, 63, 63)
+GRAY_LIGHT = (191, 191, 191)
 WHITE = (255, 255, 255)
 RED = (255, 0, 0)
 
@@ -34,14 +36,14 @@ def grid_init(argv):
         pass
 
     grid = [[WHITE for i in range(WIDTH)] for i in range(HEIGHT)]
-    grid[HEIGHT//2][WIDTH//2] = RED
+    grid[HEIGHT//2][WIDTH//2] = GRAY_LIGHT
 
     # pygame
     pygame.init()
     global SCREEN
     SCREEN = pygame.display.set_mode([HEIGHT * (CELL_SIZE+MARGIN), WIDTH * (CELL_SIZE+MARGIN)])
     pygame.display.set_caption("Langton's Ant")
-    SCREEN.fill(BLACK)
+    SCREEN.fill((127, 127, 127))
 
     return grid
 
@@ -54,16 +56,30 @@ def grid_display(grid):
         for j in range(WIDTH):
             pygame.draw.rect(SCREEN,
                              grid[i][j],
-                             [(MARGIN + WIDTH) * j + MARGIN,
-                              (MARGIN + HEIGHT) * i + MARGIN,
-                              WIDTH,
-                              HEIGHT])
-    pygame.time.Clock().tick(60)
+                             [(MARGIN + CELL_SIZE) * j + MARGIN,
+                              (MARGIN + CELL_SIZE) * i + MARGIN,
+                              CELL_SIZE,
+                              CELL_SIZE])
+    #pygame.time.Clock().tick(60)
     pygame.display.flip()
 
 
 def grid_eval(grid):
-    pass
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            return True
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            pos = pygame.mouse.get_pos()
+            # pos[0]: width
+            # pos[1]: height
+            col = pos[0] // (CELL_SIZE + MARGIN)
+            row = pos[1] // (CELL_SIZE + MARGIN)
+            if grid[row][col] == WHITE:
+                grid[row][col] = BLACK
+            else:
+                grid[row][col] = WHITE
+
+    return False
 
 
 def main(argv):
@@ -72,9 +88,13 @@ def main(argv):
     """
     grid = grid_init(argv)
 
-    while True:
-        grid_eval(grid)
+    done = False
+    while not done:
+        done = grid_eval(grid)
         grid_display(grid)
+        # sleep(0)
+
+    pygame.quit()
 
 
 if __name__ == "__main__":
