@@ -1,7 +1,7 @@
 default: main
 
 main:
-	ghc Main.hs
+	ghc -dynamic Main.hs
 
 clean:
 	@rm *.o
