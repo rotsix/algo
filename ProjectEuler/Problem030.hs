@@ -14,7 +14,7 @@ module Problem030 (answer) where
 import Utils (int2array)
 
 answer :: Integer
-answer = sum $ trues $ map (\i -> (i, isSum 4 i)) [2..10000]
+answer = sum $ trues $ map (\i -> (i, isSum 5 i)) [2..1000000]
   where isSum b a = a == (sum $ map (^b) $ int2array a)
 
 trues :: [(Integer, Bool)] -> [Integer]
