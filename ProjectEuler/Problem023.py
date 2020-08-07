@@ -8,7 +8,6 @@
 
 # Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.
 
-import math
 from utils import get_divisors
 
 MAX = 28123

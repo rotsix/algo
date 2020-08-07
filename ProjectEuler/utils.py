@@ -2,6 +2,8 @@
 
 import collections
 import itertools
+import sympy
+import math
 
 
 def prime_factors(n):
@@ -17,13 +19,6 @@ def prime_factors(n):
         yield n
 
 
-def prod(iterable):
-    result = 1
-    for i in iterable:
-        result *= i
-    return result
-
-
 def get_divisors(n):
     pf = prime_factors(n)
     pf_with_multiplicity = collections.Counter(pf)
@@ -34,4 +29,8 @@ def get_divisors(n):
     ]
 
     for prime_power_combo in itertools.product(*powers):
-        yield prod(prime_power_combo)
+        yield math.prod(prime_power_combo)
+
+
+def is_prime(n):
+    return sympy.isprime(n)
