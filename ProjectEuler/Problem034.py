@@ -10,7 +10,8 @@
 import math
 
 fact = lambda n: math.prod([d for d in range(1, n + 1)])
-digit_fact = lambda n: sum([fact(int(d)) for d in str(n)])
+facts = [fact(n) for n in range(1, 10)]
+digit_fact = lambda n: sum([facts[int(d) - 1] for d in str(n)])
 
 
 # this gives us the upper limit (10,000,000)
